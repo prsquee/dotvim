@@ -10,3 +10,6 @@
 [submodule "pack/colors/start/vim-solarized8"]
 	path = pack/colors/start/vim-solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git
+[submodule "pack/plugins/opt/vim-uuid-highlight"]
+	path = pack/plugins/opt/vim-uuid-highlight
+	url = git@gitlab.cee.redhat.com:fsun/vim-uuid-highlight.git
