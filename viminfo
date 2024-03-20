@@ -17,12 +17,12 @@
 ~MSle0&^" \a
 
 # Command Line History (newest to oldest):
-:q!
-|2,0,1710904763,,"q!"
 :wq
-|2,0,1710895397,,"wq"
+|2,0,1710907832,,"wq"
 :w
-|2,0,1710895389,,"w"
+|2,0,1710907830,,"w"
+:q!
+|2,0,1710907757,,"q!"
 :echo 'packpath'
 |2,0,1710891225,,"echo 'packpath'"
 :echo pp
@@ -50,12 +50,28 @@
 
 # Registers:
 ""1	LINE	0
-	  call CheckDarkMode()
-|3,1,1,1,1,0,1710891075,"  call CheckDarkMode()"
+	cd "$orig_path"
+|3,1,1,1,1,0,1710907823,"cd \"$orig_path\""
 "2	LINE	0
-	
-|3,0,2,1,1,0,1710820359,""
+	orig_path="$(pwd -P)"
+	self_path="$0"
+	while [ -L "$self_path" ]; do  # dereference links
+		link="$(basename "$self_path")"
+		cd "$(dirname "$self_path")"
+		self_path="$(readlink "$link")"
+	done
+	cd "$(dirname "$self_path")"
+|3,0,2,1,8,0,1710907785,"orig_path=\"$(pwd -P)\"","self_path=\"$0\"","while [ -L \"$self_path\" ]; do  # dereference links","	link=\"$(basename \"$self_path\")\"","	cd \"$(dirname \"$self_path\")\"","	self_path=\"$(readlink \"$link\")\"","done","cd \"$(dirname \"$self_path\")\""
 "3	LINE	0
+	asdasd "obvio que no'"  asdasd 'ithis'
+|3,0,3,1,1,0,1710907186,"asdasd \"obvio que no'\"  asdasd 'ithis'"
+"4	LINE	0
+	  call CheckDarkMode()
+|3,0,4,1,1,0,1710891075,"  call CheckDarkMode()"
+"5	LINE	0
+	
+|3,0,5,1,1,0,1710820359,""
+"6	LINE	0
 	  function! CheckDarkMode()
 	    if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
 	      set background=dark
@@ -63,233 +79,251 @@
 	      set background=light
 	    endif
 	  endfun
-|3,0,3,1,7,0,1710820359,"  function! CheckDarkMode()","    if system(\"defaults read -g AppleInterfaceStyle\") =~ '^Dark'","      set background=dark","    else","      set background=light","    endif","  endfun"
+|3,0,6,1,7,0,1710820359,"  function! CheckDarkMode()","    if system(\"defaults read -g AppleInterfaceStyle\") =~ '^Dark'","      set background=dark","    else","      set background=light","    endif","  endfun"
+"-	CHAR	0
+	 "$(dirname "$(pwd -P)")/MacOS/Vim"
+|3,0,36,0,1,0,1710907820," \"$(dirname \"$(pwd -P)\")/MacOS/Vim\""
 
 # File marks:
-'0  6  0  ~/.vim/.gitmodules
-|4,48,6,0,1710904763,"~/.vim/.gitmodules"
-'1  4  4  ~/.vim/.gitignore
-|4,49,4,4,1710895397,"~/.vim/.gitignore"
-'2  135  0  ~/.vimrc
-|4,50,135,0,1710891078,"~/.vimrc"
-'3  136  21  ~/.vimrc
-|4,51,136,21,1710820554,"~/.vimrc"
-'4  136  21  ~/.vimrc
-|4,52,136,21,1710820554,"~/.vimrc"
-'5  76  73  ~/.vimrc
-|4,53,76,73,1710820369,"~/.vimrc"
-'6  76  73  ~/.vimrc
-|4,54,76,73,1710820369,"~/.vimrc"
-'7  76  73  ~/.vimrc
-|4,55,76,73,1710820369,"~/.vimrc"
-'8  76  73  ~/.vimrc
-|4,56,76,73,1710820369,"~/.vimrc"
-'9  128  2  ~/.vimrc
-|4,57,128,2,1710820362,"~/.vimrc"
+'0  64  0  /usr/local/bin/mvim
+|4,48,64,0,1710907832,"/usr/local/bin/mvim"
+'1  324  0  ~/.vimrc
+|4,49,324,0,1710907188,"~/.vimrc"
+'2  6  0  ~/.vim/.gitmodules
+|4,50,6,0,1710904763,"~/.vim/.gitmodules"
+'3  4  4  ~/.vim/.gitignore
+|4,51,4,4,1710895397,"~/.vim/.gitignore"
+'4  135  0  ~/.vimrc
+|4,52,135,0,1710891078,"~/.vimrc"
+'5  135  0  ~/.vimrc
+|4,53,135,0,1710891078,"~/.vimrc"
+'6  136  21  ~/.vimrc
+|4,54,136,21,1710820554,"~/.vimrc"
+'7  136  21  ~/.vimrc
+|4,55,136,21,1710820554,"~/.vimrc"
+'8  136  21  ~/.vimrc
+|4,56,136,21,1710820554,"~/.vimrc"
+'9  136  21  ~/.vimrc
+|4,57,136,21,1710820554,"~/.vimrc"
 
 # Jumplist (newest first):
+-'  64  0  /usr/local/bin/mvim
+|4,39,64,0,1710907832,"/usr/local/bin/mvim"
+-'  64  0  /usr/local/bin/mvim
+|4,39,64,0,1710907832,"/usr/local/bin/mvim"
+-'  1  0  /usr/local/bin/mvim
+|4,39,1,0,1710907760,"/usr/local/bin/mvim"
+-'  1  0  /usr/local/bin/mvim
+|4,39,1,0,1710907760,"/usr/local/bin/mvim"
+-'  324  0  ~/.vimrc
+|4,39,324,0,1710907188,"~/.vimrc"
+-'  324  0  ~/.vimrc
+|4,39,324,0,1710907188,"~/.vimrc"
+-'  324  0  ~/.vimrc
+|4,39,324,0,1710907188,"~/.vimrc"
+-'  324  0  ~/.vimrc
+|4,39,324,0,1710907188,"~/.vimrc"
+-'  324  0  ~/.vimrc
+|4,39,324,0,1710907188,"~/.vimrc"
+-'  324  0  ~/.vimrc
+|4,39,324,0,1710907188,"~/.vimrc"
+-'  324  0  ~/.vimrc
+|4,39,324,0,1710907188,"~/.vimrc"
+-'  324  0  ~/.vimrc
+|4,39,324,0,1710907188,"~/.vimrc"
+-'  324  0  ~/.vimrc
+|4,39,324,0,1710907188,"~/.vimrc"
+-'  324  0  ~/.vimrc
+|4,39,324,0,1710907188,"~/.vimrc"
+-'  324  0  ~/.vimrc
+|4,39,324,0,1710907188,"~/.vimrc"
+-'  324  0  ~/.vimrc
+|4,39,324,0,1710907188,"~/.vimrc"
+-'  324  0  ~/.vimrc
+|4,39,324,0,1710907188,"~/.vimrc"
+-'  324  0  ~/.vimrc
+|4,39,324,0,1710907188,"~/.vimrc"
+-'  324  0  ~/.vimrc
+|4,39,324,0,1710907188,"~/.vimrc"
+-'  324  0  ~/.vimrc
+|4,39,324,0,1710907188,"~/.vimrc"
+-'  137  0  ~/.vimrc
+|4,39,137,0,1710907171,"~/.vimrc"
+-'  137  0  ~/.vimrc
+|4,39,137,0,1710907171,"~/.vimrc"
+-'  137  0  ~/.vimrc
+|4,39,137,0,1710907171,"~/.vimrc"
+-'  137  0  ~/.vimrc
+|4,39,137,0,1710907171,"~/.vimrc"
+-'  137  0  ~/.vimrc
+|4,39,137,0,1710907171,"~/.vimrc"
+-'  137  0  ~/.vimrc
+|4,39,137,0,1710907171,"~/.vimrc"
+-'  137  0  ~/.vimrc
+|4,39,137,0,1710907171,"~/.vimrc"
+-'  137  0  ~/.vimrc
+|4,39,137,0,1710907171,"~/.vimrc"
+-'  137  0  ~/.vimrc
+|4,39,137,0,1710907171,"~/.vimrc"
+-'  137  0  ~/.vimrc
+|4,39,137,0,1710907171,"~/.vimrc"
+-'  137  0  ~/.vimrc
+|4,39,137,0,1710907171,"~/.vimrc"
+-'  137  0  ~/.vimrc
+|4,39,137,0,1710907171,"~/.vimrc"
+-'  137  0  ~/.vimrc
+|4,39,137,0,1710907171,"~/.vimrc"
+-'  137  0  ~/.vimrc
+|4,39,137,0,1710907171,"~/.vimrc"
+-'  137  0  ~/.vimrc
+|4,39,137,0,1710907171,"~/.vimrc"
+-'  137  0  ~/.vimrc
+|4,39,137,0,1710907171,"~/.vimrc"
+-'  135  0  ~/.vimrc
+|4,39,135,0,1710907170,"~/.vimrc"
+-'  135  0  ~/.vimrc
+|4,39,135,0,1710907170,"~/.vimrc"
+-'  135  0  ~/.vimrc
+|4,39,135,0,1710907170,"~/.vimrc"
+-'  135  0  ~/.vimrc
+|4,39,135,0,1710907170,"~/.vimrc"
+-'  135  0  ~/.vimrc
+|4,39,135,0,1710907170,"~/.vimrc"
+-'  135  0  ~/.vimrc
+|4,39,135,0,1710907170,"~/.vimrc"
+-'  135  0  ~/.vimrc
+|4,39,135,0,1710907170,"~/.vimrc"
+-'  135  0  ~/.vimrc
+|4,39,135,0,1710907170,"~/.vimrc"
+-'  135  0  ~/.vimrc
+|4,39,135,0,1710907170,"~/.vimrc"
+-'  135  0  ~/.vimrc
+|4,39,135,0,1710907170,"~/.vimrc"
+-'  135  0  ~/.vimrc
+|4,39,135,0,1710907170,"~/.vimrc"
+-'  135  0  ~/.vimrc
+|4,39,135,0,1710907170,"~/.vimrc"
+-'  135  0  ~/.vimrc
+|4,39,135,0,1710907170,"~/.vimrc"
+-'  135  0  ~/.vimrc
+|4,39,135,0,1710907170,"~/.vimrc"
+-'  135  0  ~/.vimrc
+|4,39,135,0,1710907170,"~/.vimrc"
+-'  135  0  ~/.vimrc
+|4,39,135,0,1710907170,"~/.vimrc"
 -'  6  0  ~/.vim/.gitmodules
 |4,39,6,0,1710904763,"~/.vim/.gitmodules"
--'  1  0  ~/.vim/.gitmodules
-|4,39,1,0,1710904750,"~/.vim/.gitmodules"
--'  4  4  ~/.vim/.gitignore
-|4,39,4,4,1710895397,"~/.vim/.gitignore"
--'  4  4  ~/.vim/.gitignore
-|4,39,4,4,1710895397,"~/.vim/.gitignore"
--'  4  4  ~/.vim/.gitignore
-|4,39,4,4,1710895397,"~/.vim/.gitignore"
--'  4  4  ~/.vim/.gitignore
-|4,39,4,4,1710895397,"~/.vim/.gitignore"
--'  1  0  ~/.vim/.gitignore
-|4,39,1,0,1710895373,"~/.vim/.gitignore"
--'  1  0  ~/.vim/.gitignore
-|4,39,1,0,1710895373,"~/.vim/.gitignore"
--'  1  0  ~/.vim/.gitignore
-|4,39,1,0,1710895373,"~/.vim/.gitignore"
--'  1  0  ~/.vim/.gitignore
-|4,39,1,0,1710895373,"~/.vim/.gitignore"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
--'  135  0  ~/.vimrc
-|4,39,135,0,1710891078,"~/.vimrc"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
+-'  6  0  ~/.vim/.gitmodules
+|4,39,6,0,1710904763,"~/.vim/.gitmodules"
 
 # History of marks within files (newest to oldest):
+
+> /usr/local/bin/mvim
+	*	1710907830	0
+	"	64	0
+	^	14	53
+	.	15	0
+	+	14	52
+	+	15	0
+
+> ~/.vimrc
+	*	1710907186	0
+	"	324	0
+	.	325	0
+	+	332	24
+	+	90	5
+	+	136	0
+	+	325	0
 
 > ~/.vim/.gitmodules
 	*	1710904762	0
@@ -305,15 +339,6 @@
 > /usr/local/Cellar/vim/9.1.0150/share/vim/vim91/doc/options.txt
 	*	1710891229	0
 	"	5990	4
-
-> ~/.vimrc
-	*	1710891077	0
-	"	135	0
-	^	90	6
-	.	136	0
-	+	330	24
-	+	90	5
-	+	136	0
 
 > /Applications/MacVim.app/Contents/Resources/vim/runtime/syntax/colortest.vim
 	*	1710820159	0
