@@ -1,0 +1,12 @@
+[submodule "pack/plugins/start/lightline.vim"]
+	path = pack/plugins/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule "pack/plugins/start/vim-gitbranch"]
+	path = pack/plugins/start/vim-gitbranch
+	url = https://github.com/itchyny/vim-gitbranch
+[submodule "pack/plugins/start/vim-smoothie"]
+	path = pack/plugins/start/vim-smoothie
+	url = https://github.com/psliwka/vim-smoothie
+[submodule "pack/colors/start/vim-solarized8"]
+	path = pack/colors/start/vim-solarized8
+	url = https://github.com/lifepillar/vim-solarized8.git
